@@ -4,6 +4,7 @@ const authRoutes = require('./routes/authRoutes')
 
 const app = express()
 
+app.use(express.json())
 app.use(authRoutes)
 
 const mongoUri = 'mongodb+srv://Admin:passwordpassword@track-server.x49zw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
@@ -22,5 +23,5 @@ app.get('/', (req, res) => {
 })
 
 app.listen(3002, () => {
-    console.log('Listening on port 3000')
-})
+    console.log('Listening on port 3002')
+}) 
