@@ -1,7 +1,10 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const authRoutes = require('./routes/authRoutes')
 
 const app = express()
+
+app.use(authRoutes)
 
 const mongoUri = 'mongodb+srv://Admin:passwordpassword@track-server.x49zw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 mongoose.connect(mongoUri)
@@ -15,7 +18,7 @@ mongoose.connection.on('error', (err) => {
 })
 
 app.get('/', (req, res) => {
-    res.send('boom')
+    res.send('Hey there')
 })
 
 app.listen(3002, () => {
