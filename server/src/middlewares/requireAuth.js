@@ -17,6 +17,7 @@ module.exports = (req, res, next) => {
             return res.status(401).send({ error: 'You must be logged in.' })
         }
 
+        // Take userId off of our jwt
         const { userId } = payload
 
         // assign user model to req.user

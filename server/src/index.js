@@ -20,6 +20,7 @@ mongoose.connection.on('error', (err) => {
     console.error('Error connecting to mongo', err)
 })
 
+// If requireAuth middleware next() is invoked, allow access to root route
 app.get('/', requireAuth, (req, res) => {
     res.send(`Your email: ${req.user.email}`)
 })
