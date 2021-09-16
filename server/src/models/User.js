@@ -40,6 +40,7 @@ userSchema.pre('save', function(next) {
 userSchema.methods.comparePassword = function(candidatePassword) {
     const user = this
 
+    // If this promise resolves, the user gets logged in.
     return new Promise((resolve, reject) => {
         bcrypt.compare(candidatePassword, user.password, (err, isMatch) => {
             if(err) {
