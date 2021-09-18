@@ -26,7 +26,7 @@ router.post('/signin', async (req, res) => {
 
     // Check if email and password were provided by the user.
     if(!email || !password) {
-        return res.status(422)/send({ error: 'Must provide email and password' })
+        return res.status(422).send({ error: 'Must provide email and password' })
     }
 
     // Check if a user with the submitted email exists in our db.
@@ -35,7 +35,7 @@ router.post('/signin', async (req, res) => {
         return res.status(422).send({ error: 'Invalid password or email' })
     }
 
-    // If the password submitted matches the email, sign the user into their account. 
+    // If the password submitted matches the email, resolve the promise and sign the user into their account. 
     try {
         await user.comparePassword(password)
         const token = jwt.sign({ userId: user._id }, 'MY_SECRET_KEY')
