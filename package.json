@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/index.js",
+    "ngrok": "ngrok http 3005"
   },
   "keywords": [],
   "author": "",
